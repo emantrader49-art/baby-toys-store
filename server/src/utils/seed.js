@@ -88,7 +88,7 @@ async function seed() {
       discountPercent: i % 5 === 0 ? 15 : 0,
       stock: hasVariants ? 30 : 20 + (i % 10),
       variants,
-      images: [{ url: "https://via.placeholder.com/500x500?text=Toy", altText: name, isThumbnail: true }],
+      images: [{ url: `https://placehold.co/500x500/e8dcc8/3d2f1f?text=${encodeURIComponent(name)}`, altText: name, isThumbnail: true }],
       safetyInfo: {
         material: "BPA-free plastic",
         chokingWarning: ageRange === "0-6m" || ageRange === "6-12m",
