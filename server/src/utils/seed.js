@@ -8,6 +8,23 @@ import { Product } from "../models/Product.js";
 import { Coupon } from "../models/Coupon.js";
 import slugify from "./slugify.js";
 
+const TOY_IMAGES = [
+  "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=500&h=500&fit=crop&auto=format",
+  "https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=500&h=500&fit=crop&auto=format",
+  "https://images.unsplash.com/photo-1618842676088-c4d48a6a7c9d?w=500&h=500&fit=crop&auto=format",
+  "https://images.unsplash.com/photo-1504484656217-38f8ffc617f9?w=500&h=500&fit=crop&auto=format",
+  "https://images.unsplash.com/photo-1559454403-b8fb88521f11?w=500&h=500&fit=crop&auto=format",
+  "https://images.unsplash.com/photo-1589827711524-0fb39b96e630?w=500&h=500&fit=crop&auto=format",
+  "https://images.unsplash.com/photo-1741389544696-0750a7ac6bbb?w=500&h=500&fit=crop&auto=format",
+  "https://images.unsplash.com/photo-1622403718261-bd0e7dd01216?w=500&h=500&fit=crop&auto=format",
+  "https://images.unsplash.com/photo-1685358268305-c621b38e75d8?w=500&h=500&fit=crop&auto=format",
+  "https://images.unsplash.com/photo-1704988935392-09fc355154aa?w=500&h=500&fit=crop&auto=format",
+  "https://images.unsplash.com/photo-1707143017681-777ab2ac79a4?w=500&h=500&fit=crop&auto=format",
+  "https://images.unsplash.com/photo-1549501602-52168bb8f653?w=500&h=500&fit=crop&auto=format",
+  "https://images.unsplash.com/photo-1560859251-d563a49c5e4a?w=500&h=500&fit=crop&auto=format",
+  "https://images.unsplash.com/photo-1505043203398-7e4c111acbfa?w=500&h=500&fit=crop&auto=format",
+  "https://images.unsplash.com/photo-1709380830070-2c0da9348126?w=500&h=500&fit=crop&auto=format",
+];
 const CATEGORY_NAMES = [
   "Rattles",
   "Learning Toys",
@@ -88,7 +105,7 @@ async function seed() {
       discountPercent: i % 5 === 0 ? 15 : 0,
       stock: hasVariants ? 30 : 20 + (i % 10),
       variants,
-      images: [{ url: `https://loremflickr.com/500/500/${encodeURIComponent(category.name.toLowerCase().replace(/\s+/g, ","))},toy,baby?lock=${1000 + i}`, altText: name, isThumbnail: true }],images: [{ url: `https://placehold.co/500x500/e8dcc8/3d2f1f?text=${encodeURIComponent(name)}`, altText: name, isThumbnail: true }],
+      images: [{ url: TOY_IMAGES[i % TOY_IMAGES.length], altText: name, isThumbnail: true }],
       safetyInfo: {
         material: "BPA-free plastic",
         chokingWarning: ageRange === "0-6m" || ageRange === "6-12m",
